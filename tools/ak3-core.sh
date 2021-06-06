@@ -423,6 +423,7 @@ flash_dtbo() {
     if [ ! -e "$dtboblock" ]; then
       abort "dtbo partition could not be found. Aborting...";
     fi;
+    ui_print " " "Installing dtbo image...";
     blockdev --setrw $dtboblock 2>/dev/null;
     if [ -f "$bin/flash_erase" -a -f "$bin/nandwrite" ]; then
       $bin/flash_erase $dtboblock 0 0;
